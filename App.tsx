@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
+// import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { DefaultTheme, Provider as PaperProvider, TextInput } from 'react-native-paper'
+import Login from './src/screens/Login'
+
+const myTheme = {
+  ...DefaultTheme,
+  roundness: 2,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: '#2d2c45',
+    accent: '#3d3b3b',
+    // background: "black"
+  },
+};
+// <PaperProvider theme={theme}></PaperProvider>
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <PaperProvider theme={myTheme}>
+      <Login/>
+    </PaperProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
